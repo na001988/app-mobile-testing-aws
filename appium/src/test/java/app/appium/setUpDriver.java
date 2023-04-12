@@ -16,7 +16,7 @@ public class setUpDriver {
     @BeforeMethod(alwaysRun=true)
 	    public void setUp() throws Exception {
 	        MutableCapabilities capabilities = new UiAutomator2Options();
-	        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+	        driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
 	    }
 
 
