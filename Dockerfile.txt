@@ -1,5 +1,5 @@
 FROM openjdk:12-alpine3.8
-WORKDIR /home/main/app-mobile-testing-aws
+WORKDIR /var/lib/jenkins/workspace/demo-android
 COPY target/selenium-test.jar selenium-test.jar
 COPY target/selenium-test-tests.jar selenium-test-tests.jar
 COPY target/libs libs
