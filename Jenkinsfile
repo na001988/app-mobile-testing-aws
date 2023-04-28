@@ -26,7 +26,7 @@ pipeline{
 		stage("Start container"){
 			steps{
 				
-			//sh 'ls -ll' 
+			sh 'ls -ll' 
 			//sh 'docker run -d -i --name mydemo --entrypoint=/bin/sh android-appium-aws/selenium-docker'
 			 
 			}
