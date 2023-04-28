@@ -35,6 +35,7 @@ pipeline{
 			steps{
 				
 			sh 'docker exec -it mydemo /bin/sh' 
+			sh 'ls -ll'
 			sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
 			 
 			}
