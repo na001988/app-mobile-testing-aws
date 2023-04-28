@@ -40,8 +40,9 @@ pipeline{
 	
 	post{
 		always{
-		 sh 'docker compose down'
-		 //sh 'ls -la'
+		 	sh 'ls -la'
+			sh 'docker-compose down'
+		 
 		}
 	}
 }
