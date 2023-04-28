@@ -37,11 +37,11 @@ pipeline{
 			//sh 'docker exec -e "TERM=xterm" -i mydemo sh' 
 			//sh 'pwd'
 			sh '''
-			docker exec -i 89976cfbf857 sh
+			docker exec -it mydemo sh
 			ls -ll
-			//sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
 			exit
 			'''
+			//sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
 				
 			}
 		}
