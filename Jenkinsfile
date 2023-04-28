@@ -26,21 +26,21 @@ pipeline{
 		stage("Start container"){
 			steps{
 			sh 'ls -ll' 
-			sh "docker run -it --entrypoint=/bin/sh android-appium-aws/selenium-docker"
+			sh 'docker run -tty --entrypoint=/bin/sh android-appium-aws/selenium-docker'
 			 
 			}
 		}
 		stage("Run test"){
 			steps{
 			 sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
-			 //sh 'docker images'
+			 sh 'docker ps'
 			}
 		}
 	}
 	
 	post{
 		always{
-		 	sh 'ls -la'
+		 	sh 'docker ps -a'
 			//sh 'docker-compose down'
 		 
 		}
