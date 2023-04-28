@@ -19,20 +19,20 @@ pipeline{
 		stage("Build Docker Image"){
 			steps{
 			sh 'chmod 770 *' 
-			sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
+			//sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
 			}
 		}
 		
 		stage("Start container"){
 			steps{
 			sh 'ls -ll' 
-			sh 'docker exec -tty --entrypoint=/bin/sh android-appium-aws/selenium-docker'
+			sh 'docker exec -i --entrypoint=/bin/sh android-appium-aws/selenium-docker'
 			 
 			}
 		}
 		stage("Run test"){
 			steps{
-			 sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
+			 //sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
 			 sh 'docker ps'
 			}
 		}
