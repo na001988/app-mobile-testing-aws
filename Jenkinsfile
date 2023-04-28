@@ -4,7 +4,7 @@ pipeline{
 		stage("verify tooling"){
 		 steps{
 			sh '''
-			docker info
+			docker -v
 			mvn -v
 			java -version
 			'''
@@ -12,21 +12,22 @@ pipeline{
 		}
 		stage("Compile Code"){
 		 steps{
-			//sh 'mvn clean package -DskipsTests'
-			 sh 'whoami'
+			sh 'whoami'
+			 //sh 'mvn clean package -DskipsTests'
 		 }
 		}
 		stage("Build Docker Image"){
 			steps{
-			 //sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
-			 sh 'ls -ll'
+			sh 'pwd' 
+			//sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
 			}
 		}
 		
 		stage("Start container"){
 			steps{
-			 //sh 'docker run -it --entrypoint=/bin/sh android-appium-aws/selenium-docker'
-			 sh 'docker ps -a'
+			sh 'ls -ll' 
+			//sh 'docker run -it --entrypoint=/bin/sh android-appium-aws/selenium-docker'
+			 
 			}
 		}
 		stage("Run test"){
