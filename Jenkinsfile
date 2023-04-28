@@ -25,15 +25,18 @@ pipeline{
 		
 		stage("Start container"){
 			steps{
+				
 			sh 'ls -ll' 
-			sh 'docker exec -i --entrypoint=/bin/sh android-appium-aws/selenium-docker'
+			sh 'docker run -d -i --name mydemo --entrypoint=/bin/sh android-appium-aws/selenium-docker'
 			 
 			}
 		}
 		stage("Run test"){
 			steps{
-			 //sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
-			 sh 'docker ps'
+				
+			sh 'docker exec -it mydemo /bin/sh' 
+			sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
+			 
 			}
 		}
 	}
