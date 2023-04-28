@@ -37,6 +37,7 @@ pipeline{
 			//sh 'docker exec -e "TERM=xterm" -i mydemo sh' 
 			sh '''
 			docker exec -i mydemo sh
+			pwd
 			ls -ll
 			exit
 			'''
