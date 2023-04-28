@@ -35,10 +35,8 @@ pipeline{
 			steps{
 				
 			//sh 'docker exec -e "TERM=xterm" -i mydemo sh' 
-			//sh 'pwd'
 			sh '''
-			export COMPOSE_INTERACTIVE_NO_CLI=1
-			docker exec -it mydemo sh
+			docker exec -i mydemo sh
 			ls -ll
 			exit
 			'''
