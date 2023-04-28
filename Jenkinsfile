@@ -18,7 +18,7 @@ pipeline{
 		}
 		stage("Build Docker Image"){
 			steps{
-			sh 'pwd' 
+			sh 'chmod 770 *' 
 			//sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
 			}
 		}
