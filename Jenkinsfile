@@ -16,13 +16,13 @@ pipeline{
 		}
 		stage("Build Docker Image"){
 			steps{
-			 sh 'docker build -t demo-appium-cloud/selenium-docker -f ./Dockerfile.txt .'
+			 sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
 			}
 		}
 		
 		stage("Start container"){
 			steps{
-			 sh 'docker run -it --entrypoint=/bin/sh demo-appium-cloud/selenium-docker'
+			 sh 'docker run -it --entrypoint=/bin/sh android-appium-aws/selenium-docker'
 			 sh 'docker ps -a'
 			}
 		}
