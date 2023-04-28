@@ -12,27 +12,27 @@ pipeline{
 		}
 		stage("Compile Code"){
 		 steps{
-			sh 'whoami'
-			 //sh 'mvn clean package -DskipsTests'
+			//sh 'whoami'
+			sh 'mvn clean package -DskipsTests'
 		 }
 		}
 		stage("Build Docker Image"){
 			steps{
 			sh 'chmod 770 *' 
-			//sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
+			sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
 			}
 		}
 		
 		stage("Start container"){
 			steps{
-			sh 'ls -ll' 
-			//sh 'docker run -it --entrypoint=/bin/sh android-appium-aws/selenium-docker'
+			//sh 'ls -ll' 
+			sh 'docker run -it --entrypoint=/bin/sh android-appium-aws/selenium-docker'
 			 
 			}
 		}
 		stage("Run test"){
 			steps{
-			 //sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
+			 sh 'java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml'
 			 sh 'docker images'
 			}
 		}
@@ -40,8 +40,8 @@ pipeline{
 	
 	post{
 		always{
-		 //sh 'docker compose down'
-		 sh 'ls -la'
+		 sh 'docker compose down'
+		 //sh 'ls -la'
 		}
 	}
 }
