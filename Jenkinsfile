@@ -12,8 +12,8 @@ pipeline{
 		}
 		stage("Compile Code"){
 		 steps{
-			sh 'whoami'
-			//sh 'mvn clean package -DskipsTests'
+			//sh 'whoami'
+			sh 'mvn clean package -DskipsTests'
 		 }
 		}
 		stage("Build Docker Image"){
