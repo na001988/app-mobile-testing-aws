@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 echo "Start java app"
-java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml
+#java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml
+mvn test -P sample-test
