@@ -36,15 +36,15 @@ pipeline{
 			steps{
 				
 			//sh 'docker exec -e "TERM=xterm" -i mydemo sh' 
-			sh '''
-			docker exec -i mydemo sh
-			pwd
-			ls -ll
-			cd target
-			ls -ll
-			java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml
-			exit
-			'''
+			
+			//docker exec -i mydemo sh
+			sh 'pwd'
+			sh 'ls -ll'
+			//cd target
+			//ls -ll
+			//java -cp selenium-test.jar:selenium-test-tests.jar:libs/* org.testng.TestNG testng.xml
+			
+			
 			}
 		}
 	}
