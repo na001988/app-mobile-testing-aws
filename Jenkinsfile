@@ -36,8 +36,8 @@ pipeline{
 	
 	post{
 		always{
-		 	//sh 'docker stop mydemo'
-			//sh 'docker rmi -f mydemo'
+		 	//sh 'docker stop android-appium-aws/selenium-docker'
+			//sh 'docker rmi -f android-appium-aws/selenium-docker'
 			sh 'docker ps'
 			//sh 'docker-compose down'
 		 
