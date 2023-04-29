@@ -3,6 +3,8 @@ WORKDIR /var/lib/jenkins/workspace/demo-android
 COPY target/selenium-test.jar selenium-test.jar
 COPY target/selenium-test-tests.jar selenium-test-tests.jar
 COPY target/libs libs
+COPY WikipediaSample.apk WikipediaSample.apk
+COPY browserstack.yml browserstack.yml
 COPY sample-test.testng.xml testng.xml
 ADD run_app.sh run_app.sh
 ENTRYPOINT sh run_app.sh
