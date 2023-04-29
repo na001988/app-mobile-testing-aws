@@ -36,9 +36,9 @@ pipeline{
 	
 	post{
 		always{
-		 	sh 'docker stop mydemo'
-			sh 'docker rmi -f android-appium-aws/selenium-docker'
-			sh 'docker ps'
+		 	//sh 'docker stop mydemo'
+			//sh 'docker rmi -f android-appium-aws/selenium-docker'
+			sh 'docker ps -a'
 		}
 	}
 }
