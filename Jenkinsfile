@@ -29,8 +29,7 @@ pipeline{
 		}
 		stage("Run test"){
 			steps{
-			//sh 'docker exec -i mydemo /bin/sh  run_app.sh'
-			sh 'mvn test -P sample-test'	
+			sh 'docker exec -i mydemo /bin/sh  run_app.sh'
 			}
 		}
 	}
