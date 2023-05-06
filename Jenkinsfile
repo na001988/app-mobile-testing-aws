@@ -13,20 +13,24 @@ pipeline{
 		stage("Compile Code"){
 		 steps{
 			sh 'whoami'
-			sh 'mvn clean package -DskipsTests'
+			//sh 'mvn clean package -DskipsTests'
 		 }
 		}
 		stage("Build Docker Image"){
 			steps{
-			sh 'docker build . -t android-appium-aws/selenium-docker'
+			//sh 'docker build . -t android-appium-aws/selenium-docker'
 			sh 'docker images'
 			}
 		}
 
 		stage("Run test from Docker"){
 			steps{
-			//sh 'docker run -i --entrypoint=sh android-appium-aws/selenium-docker'
-			sh 'docker exec -i android-appium-aws/selenium-docker /bin/sh  run.sh'	
+			sh '''
+				docker run -i --entrypoint=sh android-appium-aws/selenium-docker'
+				sh run.sh
+			  '''
+			//sh 'docker exec -i android-appium-aws/selenium-docker /bin/sh  run.sh'
+			
 			}
 		}
 	}
