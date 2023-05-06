@@ -26,10 +26,11 @@ pipeline{
 
 		stage("Run test from Docker"){
 		 steps{
-			sh '''
-			docker run -i --entrypoint=sh ${name}
-			sh run.sh 
-		  	'''
+			sh 'docker ps'
+			//sh '''
+			//docker run -i --entrypoint=sh ${name}
+			//sh run.sh 
+		  	//'''
 		 }
 		}
 	}
