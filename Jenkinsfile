@@ -27,7 +27,8 @@ pipeline{
 			steps{
 			sh '''
 				docker run -i --entrypoint=sh android-appium-aws/selenium-docker'
-				sh run.sh
+				sh run.sh &
+				exit
 			  '''
 			//sh 'docker exec -i android-appium-aws/selenium-docker /bin/sh  run.sh'
 			
