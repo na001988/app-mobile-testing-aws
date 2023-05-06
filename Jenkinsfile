@@ -1,7 +1,7 @@
 pipeline{
 	agent any
-		def n="android"
-		def v="aws"
+		n="android"
+		v="aws"
 	stages{
 		stage("verify tooling"){
 		 steps{
