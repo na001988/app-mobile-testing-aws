@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	environment {
-        	N = "android"
+        	N = "android/aws"
     	}
 	stages{
 		stage("verify tooling"){
@@ -21,8 +21,7 @@ pipeline{
 		}
 		stage("Build Docker Image"){
 		 steps{
-			 echo "${N}"
-			//sh 'docker build . -t "${n}"/"${v}"'
+			sh "docker build . -t '${N}'"
 			sh 'docker images'
 		 }
 		}
