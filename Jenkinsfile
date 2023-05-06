@@ -18,7 +18,7 @@ pipeline{
 		}
 		stage("Build Docker Image"){
 			steps{
-			sh 'docker build -t android-appium-aws/selenium-docker -f ./Dockerfile.txt .'
+			sh 'docker build . -t android-appium-aws/selenium-docker'
 			sh 'docker images'
 			}
 		}
