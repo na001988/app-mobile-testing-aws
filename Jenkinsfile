@@ -1,8 +1,8 @@
 pipeline{
 	agent any
-	stages{
 		def n="android"
 		def v="aws"
+	stages{
 		stage("verify tooling"){
 		 steps{
 			sh '''
@@ -20,7 +20,7 @@ pipeline{
 		}
 		stage("Build Docker Image"){
 		 steps{
-			sh 'docker build . -t ${n}/${v}'
+			sh "docker build . -t ${n}/${v}"
 			sh 'docker images'
 		 }
 		}
