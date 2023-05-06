@@ -21,17 +21,17 @@ pipeline{
 		}
 		stage("Build Docker Image"){
 		 steps{
-			sh "docker build . -t '${N}'"
+			//sh "docker build . -t '${N}'"
 			sh 'docker images'
 		 }
 		}
 
 		stage("Run test from Docker"){
 		 steps{
-			sh 'docker ps'
+			//sh 'docker ps'
 			//sh '''
-			//docker run -i --entrypoint=sh ${name}
-			//sh run.sh 
+			sh "docker run -i --entrypoint=sh '${N}'"
+			sh ' sh run.sh' 
 		  	//'''
 		 }
 		}
