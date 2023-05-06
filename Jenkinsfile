@@ -23,12 +23,10 @@ pipeline{
 			}
 		}
 
-		stage("Run test"){
+		stage("Run test from Docker"){
 			steps{
-			sh 'docker ps -a'
-			sh 'docker run -i --entrypoint=sh android-appium-aws/selenium-docker'
-			sh 'pwd'
-			sh 'ls -la'
+			//sh 'docker run -i --entrypoint=sh android-appium-aws/selenium-docker'
+			sh 'docker exec -i android-appium-aws/selenium-docker /bin/sh  run.sh'	
 			}
 		}
 	}
