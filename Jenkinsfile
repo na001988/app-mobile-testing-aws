@@ -1,8 +1,8 @@
 pipeline{
 	agent any
-	def n="android"
-	def v="aws"
 	stages{
+		def n="android"
+		def v="aws"
 		stage("verify tooling"){
 		 steps{
 			sh '''
