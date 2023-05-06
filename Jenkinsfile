@@ -1,5 +1,6 @@
 pipeline{
 	agent any
+	def name="android/aws"
 	stages{
 		stage("verify tooling"){
 		 steps{
@@ -17,28 +18,25 @@ pipeline{
 		 }
 		}
 		stage("Build Docker Image"){
-			steps{
-			//sh 'docker build . -t android-appium-aws/selenium-docker'
+		 steps{
+			sh 'docker build . -t ${name}'
 			sh 'docker images'
-			}
+		 }
 		}
 
 		stage("Run test from Docker"){
-			steps{
+		 steps{
 			sh '''
-				docker run -i --entrypoint=sh android-appium-aws/selenium-docker
-				sh run.sh 
-				
-			  '''
-			//sh 'docker exec -i android-appium-aws/selenium-docker /bin/sh  run.sh'
-			
-			}
+			docker run -i --entrypoint=sh ${name}
+			sh run.sh 
+		  	'''
+		 }
 		}
 	}
 	
 	post{
 		always{
-			//sh 'docker rmi -f android-appium-aws/selenium-docker'
+			//sh 'docker rmi -f ${name}'
 			sh 'docker images'
 		}
 	}
