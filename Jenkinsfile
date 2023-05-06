@@ -26,13 +26,16 @@ pipeline{
 		stage("Run test"){
 			steps{
 			sh 'docker ps -a'
+			sh 'docker run -i --entrypoint=sh android-appium-aws/selenium-docker'
+			sh 'pwd'
+			sh 'ls -la'
 			}
 		}
 	}
 	
 	post{
 		always{
-			sh 'docker rmi -f android-appium-aws/selenium-docker'
+			//sh 'docker rmi -f android-appium-aws/selenium-docker'
 			sh 'docker images'
 		}
 	}
