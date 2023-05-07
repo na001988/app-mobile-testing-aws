@@ -16,9 +16,9 @@ pipeline {
 		stage("verify tooling") {
 			steps {
 				sh '''
-				docker - v
-				mvn - v
-				java - version 
+				docker -v
+				mvn -v
+				java -version 
 				'''
 			}
 		}
@@ -39,7 +39,7 @@ pipeline {
 			steps {
 				//sh 'ls -ll'
 				sh "docker run -i --entrypoint=sh '${N}'"
-				sh ' sh run.sh' 
+				sh 'sh run.sh' 
 			}
 		}
 	}
