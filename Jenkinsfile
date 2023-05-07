@@ -4,7 +4,18 @@ pipeline{
         	N = "android/aws"
     	}
 	stages{
-						
+		
+		stage('Deploy') {
+          steps {
+
+             sshagent(['qa-server']) {
+
+                 sh "ssh -o StrictHostKeyChecking=no -l ubuntu 3.231.156.49 'whoami'"
+
+             }
+         }
+      }
+		
 		stage("verify tooling"){
 		 steps{
 			sh '''
