@@ -1,17 +1,10 @@
-node{
+pipeline{
 	agent any
 	environment {
         	N = "android/aws"
     	}
 	stages{
-		stage('Connect to EC2 Server'){
-
-		def cmd = 'ls -ll'
-		sshagent(['qa-server']){
-			sh "ssh -o StrictHostKeyChecking=no ubuntu@3.231.156.49 ${cmd}"
-		}
-		}	
-				
+						
 		stage("verify tooling"){
 		 steps{
 			sh '''
