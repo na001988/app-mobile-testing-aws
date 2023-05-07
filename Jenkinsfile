@@ -10,6 +10,7 @@ pipeline{
 		sshagent(['qa-server']){
 			sh "ssh -o StrictHostKeyChecking=no ubuntu@3.231.156.49 ${cmd}"
 		}
+		}	
 				
 		stage("verify tooling"){
 		 steps{
