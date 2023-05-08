@@ -6,7 +6,7 @@ pipeline {
 	}
 	stages {
 
-		stage('Deploy') {
+		stage('Connect to EC2 on AWS') {
 			steps {
 				sshagent(['qa-server']) {
 					sh "ssh -o StrictHostKeyChecking=no -l ubuntu ${IP}"
