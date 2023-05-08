@@ -2,13 +2,14 @@ pipeline {
 	agent any
 	environment {
 		N = "android/aws"
+		IP = "54.236.241.89"
 	}
 	stages {
 
 		stage('Deploy') {
 			steps {
 				sshagent(['qa-server']) {
-					sh "ssh -o StrictHostKeyChecking=no -l ubuntu 3.231.156.49 'whoami'"
+					sh "ssh -o StrictHostKeyChecking=no -l ubuntu ${IP}"
 				}
 			}
 		}
