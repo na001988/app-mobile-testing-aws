@@ -25,8 +25,7 @@ pipeline {
 		}
 		stage("Compile Code") {
 			steps {
-				sh 'mvn clean install -U'
-				//sh 'mvn clean package -DskipsTests'
+				sh 'mvn clean install -DskipTests -U'
 			}
 		}
 		stage("Build Docker Image") {
