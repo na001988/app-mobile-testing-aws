@@ -47,7 +47,7 @@ pipeline {
 
 	post {
 		always {
-			sh "docker rmi -f '${N}'"
+			//sh "docker rmi -f '${N}'"
 			sh 'docker images'
 			sh 'docker ps -a'
 		}
