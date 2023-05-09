@@ -38,9 +38,9 @@ pipeline {
 
 		stage("Run test from Docker") {
 			steps {
-				//sh 'ls -ll'
-				sh "docker run -i --entrypoint=sh '${N}'"
-				sh 'sh run.sh' 
+				sh 'ls -ll'
+				//sh "docker run -i --entrypoint=sh '${N}'"
+				//sh 'sh run.sh' 
 			}
 		}
 	}
