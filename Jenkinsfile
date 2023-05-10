@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	environment {
 		N = "android/aws"
-		IP = "44.214.105.72"
+		IP = "54.159.151.43"
 	}
 	stages {
 
