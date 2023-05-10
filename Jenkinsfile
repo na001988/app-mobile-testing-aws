@@ -9,7 +9,7 @@ pipeline {
 		stage('Connect to EC2 on AWS') {
 			steps {
 				sshagent(['qa-server']) {
-					sh "ssh -o StrictHostKeyChecking=no -l ubuntu ${IP}"
+					sh "ssh -o StrictHostKeyChecking=no -l ec2-user ${IP}"
 				}
 			}
 		}
